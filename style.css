@@ -918,23 +918,26 @@ body.dark textarea {
         padding: 20px;
     }
 
-   /* FOOTER CENTERING FIX */
-
-body {
-    overflow-x: hidden;
-}
+  /* =====================================================
+   REMINDO FOOTER - CENTER
+===================================================== */
 
 footer {
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    display: block;
+    display: block !important;
+    width: 100% !important;
+    margin: 30px 0 20px 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
 }
 
 footer p {
-    width: 100%;
-    margin: 0;
-    text-align: center;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
 }
