@@ -2,24 +2,26 @@
   "name": "Remindo",
   "short_name": "Remindo",
   "description": "Never Miss What Matters.",
-  "start_url": "./index.html",
+  "id": "/remindoapp/",
+  "start_url": "/remindoapp/",
+  "scope": "/remindoapp/",
   "display": "standalone",
   "background_color": "#F4F7FB",
   "theme_color": "#0F4C81",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "/remindoapp/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icon-512.png",
+      "src": "/remindoapp/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "icon-512-maskable.png",
+      "src": "/remindoapp/icon-512-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
