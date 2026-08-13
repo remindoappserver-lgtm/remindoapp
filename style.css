@@ -919,18 +919,13 @@ body.dark textarea {
     }
 
    footer {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    width: 100%;
     text-align: center;
 }
 
 footer p {
-    width: 100%;
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
 }
-/* =====================================================
-   END REMINDO STYLE
-===================================================== */
