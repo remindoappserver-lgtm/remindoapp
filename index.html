@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Remindo | Never Miss What Matters
+</title>
+
+
+<meta name="description"
+content="Remindo is a smart reminder app to manage renewals, documents, subscriptions, maintenance and important dates.">
+
+
+<meta name="theme-color" content="#0F4C81">
+
+
+<link rel="icon" href="favicon.png" type="image/png">
+
+
+<link rel="manifest" href="manifest.json">
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+
+<body>
+
+
+<header class="header">
+
+
+<div class="logo">
+
+Remindo
+
+</div>
+
+
+
+<div class="header-actions">
+
+
+<button 
+class="icon-btn"
+id="calendarBtn"
+title="Calendar">
+
+📅
+
+</button>
+
+
+
+
+<button 
+class="icon-btn"
+id="notificationBtn"
+title="Notifications">
+
+🔔
+
+</button>
+
+
+
+
+<button 
+class="icon-btn"
+id="settingsBtn"
+title="Settings">
+
+⚙️
+
+</button>
+
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+
+<main>
+
+
+
+<section class="hero">
+
+
+<h1>
+
+Never Miss What Matters.
+
+</h1>
+
+
+<p>
+
+Manage renewals, documents, subscriptions,
+maintenance and important dates in one simple app.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="stats">
+
+
+<div class="stat-card">
+
+<h3>Total</h3>
+
+<span id="totalCount">0</span>
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+<h3>Due This Week</h3>
+
+<span id="weekCount">0</span>
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+<h3>Due This Month</h3>
+
+<span id="monthCount">0</span>
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+<h3>Expired</h3>
+
+<span id="expiredCount">0</span>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="toolbar">
+
+
+
+<input
+
+id="searchInput"
+
+type="text"
+
+placeholder="Search reminders..."
+
+>
+
+
+
+
+<select id="filterSelect">
+
+
+<option value="all">
+
+All Reminders
+
+</option>
+
+
+
+<option value="urgent">
+
+Due Within 7 Days
+
+</option>
+
+
+
+<option value="upcoming">
+
+Upcoming
+
+</option>
+
+
+
+<option value="expired">
+
+Expired
+
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+<select id="sortSelect">
+
+
+<option value="nearest">
+
+Nearest Due
+
+</option>
+
+
+
+<option value="furthest">
+
+Furthest Due
+
+</option>
+
+
+
+<option value="az">
+
+A-Z
+
+</option>
+
+
+
+<option value="newest">
+
+Newest Added
+
+</option>
+
+
+
+</select>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+<section id="reminderContainer">
+
+
+<div class="empty-state">
+
+
+<h2>
+
+No Reminders Yet
+
+</h2>
+
+
+<p>
+
+Click + to add your first reminder.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+<button
+
+id="addReminderBtn"
+
+class="add-btn">
+
++
+
+</button>
+
+
+
+
+
+
+
+
+
+<!-- ADD REMINDER MODAL -->
+
+
+<div
+
+id="modal"
+
+class="modal hidden">
+
+
+<div class="modal-content">
+
+
+
+<h2>
+
+Add Reminder
+
+</h2>
+
+
+
+
+
+
+
+
+<label>
+
+Category
+
+
+<select id="category">
+
+
+<option>Passport</option>
+
+<option>Visa / Residency</option>
+
+<option>National ID</option>
+
+
+<option>Vehicle Registration</option>
+
+<option>Vehicle Insurance</option>
+
+<option>Driving Licence</option>
+
+
+<option>Trade Licence</option>
+
+<option>Business Permit</option>
+
+<option>Company Documents</option>
+
+
+<option>Employee Documents</option>
+
+<option>Contract Renewal</option>
+
+
+<option>Property / Lease</option>
+
+<option>Home Maintenance</option>
+
+<option>Utilities</option>
+
+
+<option>Subscriptions</option>
+
+<option>Banking / Finance</option>
+
+<option>Tax / VAT</option>
+
+
+<option>Medical</option>
+
+<option>Medical Insurance</option>
+
+<option>Dental</option>
+
+
+<option>Education</option>
+
+<option>Travel</option>
+
+
+<option>Memberships</option>
+
+<option>Warranty</option>
+
+<option>Insurance</option>
+
+
+<option>Appointments</option>
+
+<option>Personal</option>
+
+
+<option>Other</option>
+
+
+</select>
+
+
+</label>
+
+
+
+
+
+
+
+
+
+<label>
+
+Title
+
+
+<input
+
+id="title"
+
+type="text"
+
+placeholder="Reminder title"
+
+>
+
+
+</label>
+
+
+
+
+
+
+
+
+
+<label>
+
+Due Date
+
+
+<input
+
+id="dueDate"
+
+type="date"
+
+>
+
+
+</label>
+
+
+
+
+
+
+
+
+
+<label>
+
+Reminder Alert
+
+
+<select id="alertTime">
+
+
+<option value="0">
+
+On Due Date
+
+</option>
+
+
+
+<option value="1">
+
+1 Day Before
+
+</option>
+
+
+
+<option value="7">
+
+7 Days Before
+
+</option>
+
+
+
+<option value="30">
+
+30 Days Before
+
+</option>
+
+
+
+</select>
+
+
+</label>
+
+
+
+
+
+
+
+
+
+<label>
+
+Repeat
+
+
+<select id="repeat">
+
+
+<option value="none">
+
+Does Not Repeat
+
+</option>
+
+
+
+<option value="monthly">
+
+Every Month
+
+</option>
+
+
+
+<option value="yearly">
+
+Every Year
+
+</option>
+
+
+
+</select>
+
+
+</label>
+
+
+
+
+
+
+
+
+
+<label>
+
+Notes
+
+
+<textarea
+
+id="notes"
+
+placeholder="Add notes (optional)"
+
+></textarea>
+
+
+</label>
+
+
+
+
+
+
+
+
+
+<div class="modal-buttons">
+
+
+<button id="cancelReminder">
+
+Cancel
+
+</button>
+
+
+
+
+<button id="saveReminder">
+
+Save Reminder
+
+</button>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<footer>
+
+
+<p>
+
+© 2026 Remindo
+
+<br>
+
+Never Miss What Matters.
+
+</p>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+
+
+
+
+<script>
+
+
+if("serviceWorker" in navigator){
+
+
+window.addEventListener("load",()=>{
+
+
+navigator.serviceWorker.register(
+
+"service-worker.js"
+
+)
+
+.then(()=>{
+
+
+console.log(
+
+"Remindo offline enabled"
+
+);
+
+
+})
+
+.catch(error=>{
+
+
+console.log(
+
+"Service Worker error",
+
+error
+
+);
+
+
+});
+
+
+});
+
+
+}
+
+
+</script>
+
+
+
+
+
+</body>
+
+</html>
